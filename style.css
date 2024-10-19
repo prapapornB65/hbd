@@ -1,0 +1,108 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #f4f4f4, #e0e0e0);
+    margin: 0;
+}
+
+.card-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+.card {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    transform-origin: top;
+    transform: rotateX(0deg);
+    transition: transform 0.8s ease-in-out;
+    background-color: #53a0cf;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card.open {
+    transform: rotateX(-180deg);
+}
+
+.card .front, .card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card .front {
+    background-color: #66c4ff;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.8s ease-in-out;
+}
+
+.card .back {
+    background-color: #ff6699;
+    color: #fff;
+    transform: rotateX(180deg);
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.card-bottom {
+    width: 100%;
+    height: 180px;
+    position: absolute;
+    top: -5px;
+    background-color: #66c4ff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    border-radius: 0 0 15px 15px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card.open ~ .card-bottom {
+    opacity: 1;
+}
+
+button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    border: none;
+    border-radius: 5px 0;
+    background-color: #ff6699;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ff3366;
+}
